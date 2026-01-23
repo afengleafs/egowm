@@ -82,7 +82,7 @@ huggingface-cli download anuragba/egowm --repo-type model --local-dir checkpoint
 ```
 
 
-### 3-DoF Navigation using $[\Delta x, \Delta y, \Delta \phi]$
+## 3-DoF Navigation using $[\Delta x, \Delta y, \Delta \phi]$
 
 #### In-Distribution Inference
 
