@@ -609,15 +609,9 @@ def set_path(args):
     name_prefix = f"{args.name_prefix}"
     exp_path = os.path.join(args.out_dir, name_prefix)
     log_path = os.path.join(exp_path, 'log')
-    model_path = os.path.join(exp_path, 'model')
-    train_vis = os.path.join(exp_path, 'train_vis')
     val_vis = os.path.join(exp_path, 'val_vis')
     if not os.path.exists(log_path): 
         os.makedirs(log_path)
-    if not os.path.exists(model_path): 
-        os.makedirs(model_path)
-    if not os.path.exists(train_vis): 
-        os.makedirs(train_vis)
     if not os.path.exists(val_vis): 
         os.makedirs(val_vis)
     
@@ -625,7 +619,7 @@ def set_path(args):
         json.dump({'command_time_stamp':dt_string, **args.__dict__}, f, indent=2)
         f.write('\n')
 
-    return log_path, model_path, train_vis, val_vis
+    return log_path, val_vis
 
 
 
@@ -660,7 +654,7 @@ if __name__ == "__main__" :
     args = parser.parse_args()
     import json
     print(json.dumps(args.__dict__, indent = 4))
-    args.log_path, args.model_path, args.train_vis, args.val_vis = set_path(args)
+    args.log_path, args.val_vis = set_path(args)
 
     main(args)
 
